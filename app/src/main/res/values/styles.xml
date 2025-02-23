@@ -1,0 +1,11 @@
+<resources>
+    <style name="GridItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#FFBB86FC</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
