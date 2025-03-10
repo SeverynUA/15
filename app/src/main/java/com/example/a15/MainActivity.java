@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.gridlayout.widget.GridLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.CountDownTimer;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
         btnRestart.setOnClickListener(v -> restartGame());
 
         gridGame.post(this::createGameBoard);
+
+        Button btnMenu = findViewById(R.id.btn_menu);
+        btnMenu.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(this, v);
+            popupMenu.getMenuInflater().inflate(R.menu.menu_main, popupMenu.getMenu());
+            popupMenu.setOnMenuItemClickListener(item -> {
+                int id = item.getItemId();
+                if (id == R.id.action_restart) {
+                    restartGame();
+                    return true;
+                } else if (id == R.id.action_exit) {
+                    finish();
+                    return true;
+                }
+                return false;
+            });
+            popupMenu.show();
+        });
     }
 
 
